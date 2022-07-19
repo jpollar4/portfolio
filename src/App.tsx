@@ -1,24 +1,50 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Button,
+} from "@mui/material";
+import * as React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Main from "./Main";
+export default function App() {
+  const navigate = useNavigate();
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>This is an Initial Portfolio PAGE!!!!!!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <Button
+              color="inherit"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Home
+            </Button>
+            <Button
+              color="inherit"
+              onClick={() => {
+                navigate("/projects");
+              }}
+            >
+              Projects
+            </Button>
+            <Button
+              color="inherit"
+              onClick={() => {
+                navigate("/about");
+              }}
+            >
+              About
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
+      <Main />
+    </>
   );
 }
-
-export default App;
